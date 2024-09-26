@@ -1,7 +1,7 @@
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -Wfatal-errors
-SRCS = main.cpp Bureaucrat.cpp Utils.cpp
+SRCS = main.cpp Bureaucrat.cpp Utils.cpp tests.cpp
 NAME = bureaucrat
 
 all: $(NAME)
