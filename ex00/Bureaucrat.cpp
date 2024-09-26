@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:19:13 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/09/25 19:57:21 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/09/26 10:11:24 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat() : _name("The one who must not be named"), _grade(150)
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-	Utils::printMsg("Bureaucrat parameterized constructor\n", "green");
+	Utils::printMsg("Bureaucrat " + _name + " parameterized constructor\n", "green");
 	if (grade < 1)
 		throw(GradeTooHighException());
 	if (grade > 150)
@@ -36,13 +36,12 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat &rhs)
 {
 	Utils::printMsg("Bureaucrat copy assignment operator\n", "yellow");
 	_grade = rhs._grade;
-	// _name = rhs._name;
 	return (*this);
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	Utils::printMsg("Bureaucrat destructor\n", "red");
+	Utils::printMsg("Bureaucrat " + _name + " destructor\n", "red");
 }
 
 std::string Bureaucrat::getName()
