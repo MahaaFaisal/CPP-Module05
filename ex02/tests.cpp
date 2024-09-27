@@ -1,65 +1,64 @@
 # include "tests.hpp"
 
+void	executeTest(AForm *form, int sgrade, int xgrade)
+{
+	Bureaucrat s("Maha", sgrade);
+	Bureaucrat x("Ola", xgrade);
+
+	try
+	{ form->beSigned(s); }
+	catch(const std::exception& e)
+	{
+		std::cerr << s.getName() << " cannot sign because: ";
+		std::cerr << e.what() << '\n';
+	}
+	form->execute(x);
+}
+
 void	shrubberyCreationTest()
 {
+	Utils::printMsg("\n|||||||||- ShrubberyCreationTest -|||||||||\n", "white");
 	AForm *treeRequest = new ShrubberyCreationForm("here");
 
-	Bureaucrat x("Maha", 138);
-	Bureaucrat y("Maha", 145);
-	//executing a not signed form
-	try
-	{treeRequest->execute(x);}
-	catch(const std::exception& e)
-	{std::cerr << e.what() << '\n';}
-	//executing from a lower grade
-	try
-	{
-		treeRequest->beSigned(y);
-		treeRequest->execute(x);
-	}
-	catch(const std::exception& e)
-	{std::cerr << e.what() << '\n';}
-	//signing from a lower grade
-	try
-	{
-		Bureaucrat y2("Maha", 147);
-		treeRequest->beSigned(y2);
-		treeRequest->execute(x);
-	}
-	catch(const std::exception& e)
-	{std::cerr << e.what() << '\n';}
+	std::cout << std::endl;
+	executeTest(treeRequest, 146, 137);
+	std::cout << std::endl;
+	executeTest(treeRequest, 145, 138);
+	std::cout << std::endl;
+	executeTest(treeRequest, 145, 137);
+	std::cout << std::endl;
+
 	delete treeRequest;
 }
 
 void	RobotomyRequestTest()
 {
-	std::cout << "|||||||||- RobotomyRequestTest -|||||||||\n";
+	Utils::printMsg("\n|||||||||- RobotomyRequestTest -|||||||||\n", "white");
 	AForm *robotomyRequest = new RobotomyRequestForm("here");
 
-	Bureaucrat x("Maha", 45);
-	Bureaucrat y("Ola", 72);
-	// executing a not signed form
-	try
-	{robotomyRequest->execute(x);}
-	catch(const std::exception& e)
-	{std::cerr << e.what() << '\n';}
-	// executing from a lower grade
-	try
-	{
-		robotomyRequest->beSigned(y);
-		robotomyRequest->execute(x);
-	}
-	catch(const std::exception& e)
-	{std::cerr << e.what() << '\n';}
-	//signing from a lower grade
-	try
-	{
-		Bureaucrat y2("Maha", 73);
-		robotomyRequest->beSigned(y2);
-		robotomyRequest->execute(x);
-	}
-	catch(const std::exception& e)
-	{std::cerr << e.what() << '\n';}
+	std::cout << std::endl;
+	executeTest(robotomyRequest, 73, 45);
+	std::cout << std::endl;
+	executeTest(robotomyRequest, 72, 46);
+	std::cout << std::endl;
+	executeTest(robotomyRequest, 72, 45);
+	std::cout << std::endl;
 
 	delete robotomyRequest;
+}
+
+void	presidentialPardonTest()
+{
+	Utils::printMsg("\n|||||||||- PresidentialPardonTest -|||||||||\n", "white");
+	AForm *pardonRequest = new PresidentialPardonForm("here");
+
+	std::cout << std::endl;
+	executeTest(pardonRequest, 26, 5);
+	std::cout << std::endl;
+	executeTest(pardonRequest, 25, 6);
+	std::cout << std::endl;
+	executeTest(pardonRequest, 25, 5);
+	std::cout << std::endl;
+
+	delete pardonRequest;
 }

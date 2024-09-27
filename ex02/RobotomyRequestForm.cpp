@@ -30,18 +30,23 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	Utils::printMsg("RobotomyRequestForm destructorr\n", "red");
 }
 
-void		RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void		RobotomyRequestForm::execute(Bureaucrat const &executor) const
 
 {
-	if (!(this->isExecutable(executor)))
-		std::cout << "not executable\n";
-	else
+	try
 	{
+		this->isExecutable(executor);
 		std::cout << "RRRRRRRRRRRRRR\n";
 		srand(time(NULL));
 		if (rand() % 2 == 0)
 			std::cout << _target << " has been robotomized successfully\n";
 		else
 			std::cout << "robotomy failed.\n";
+		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << executor.getName() << " cannot execute because: ";
+		std::cerr << e.what() << '\n';
 	}
 }

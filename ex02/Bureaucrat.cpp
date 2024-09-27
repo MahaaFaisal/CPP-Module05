@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:19:13 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/09/27 16:12:00 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/09/27 17:54:17 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ void	Bureaucrat::signForm(AForm &form)
 		std::cerr << _name << " couldn’t sign " << form.getName() << " because "; 
 		std::cerr << e.what() << '\n';
 	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	Bureaucrat &ref = *this;
+	form.execute(ref);
 }
 
 std::ostream &operator<<(std::ostream &outstream, Bureaucrat &rhs)

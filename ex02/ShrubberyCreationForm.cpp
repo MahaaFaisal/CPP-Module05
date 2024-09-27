@@ -30,12 +30,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 {
-	if (!(this->isExecutable(executor)))
-		std::cout << "not executable\n";
-	else
+	try
 	{
+		this->isExecutable(executor);
 		std::string tree = "      /\\      \n     /  \\     \n    /    \\    \n   /      \\   \n  /        \\  \n /          \\ \n/            \\\n      ||      \n      ||      ";
 		std::ofstream treeLocation(_target +"_shrubbery");
 		treeLocation << tree;
+		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << executor.getName() << " cannot execute because: ";
+		std::cerr << e.what() << '\n';
 	}
 }
