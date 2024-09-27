@@ -14,20 +14,19 @@ Form::Form (std::string name, int gradeToSign, int gradeToExecute) : _name(name)
 	Utils::printMsg("Form parameterized constructor\n", "green");
 }
 
-Form::Form (Form &other) : _name(other._name), _isSigned(0), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
+Form::Form (Form &other) : _name(other._name), _isSigned(other._isSigned), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
 	if (_gradeToSign < 1 || _gradeToExecute < 1)
 		throw (GradeTooHighException());
 	if (_gradeToSign > 150 || _gradeToExecute > 150)
 		throw (GradeTooLowException());
 	Utils::printMsg("Form copy constructor\n", "green");
-	*this = other;
 }
 
 Form &Form::operator=(Form &rhs)
 {
-	(void) rhs;
 	Utils::printMsg("Form copy assignmen operator\n", "green");
+	this->_isSigned = rhs._isSigned;
 	return (*this);
 }
 
@@ -56,18 +55,19 @@ int			Form::getGradeToExecute () const
 	return (_gradeToExecute);
 }
 
-void		Form::beSigned(Bureaucrat &buru)
+void		Form::beSigned(Bureaucrat &signer)
 {
-	if (buru.getGrade() > _gradeToSign)
+	if (signer.getGrade() > _gradeToSign)
 		throw(GradeTooLowException());
 	_isSigned = 1;
 }
 
 std::ostream &operator<<(std::ostream &outStream, Form &form)
 {
-	outStream << form.getName() << " ";
-	outStream << form.getIsSigned() << " ";
-	outStream << form.getGradeToSign()  << " ";
-	outStream << form.getGradeToExecute() << std::endl;
+	outStream << "Form name: "<< form.getName() << " | ";
+	outStream <<"is signed ? ";
+	outStream << (form.getIsSigned() ? "YES" : "NO") << " | ";
+	outStream << "Grade to sign: "<< form.getGradeToSign()  << " | ";
+	outStream << "Grade to Execute: "<< form.getGradeToExecute() << std::endl;
 	return (outStream);
 }

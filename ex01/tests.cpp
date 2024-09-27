@@ -32,9 +32,9 @@ void	properSign()
 	{
 		Bureaucrat b("b", 4);
 		Form form("f1", 6, 4);
-		std::cout << "is signed? " << form.getIsSigned() << '\n';
+		std::cout << form << std::endl;
 		b.signForm(form);
-		std::cout << "is signed? " << form.getIsSigned() << '\n';
+		std::cout << form << std::endl;
 	}
 	catch (const std::exception &e)
 	{
@@ -48,9 +48,9 @@ void	improperSign()
 	{
 		Bureaucrat b("b", 4);
 		Form form("f1", 3, 4);
-		std::cout << "is signed? " << form.getIsSigned() << '\n';
+		std::cout << form << std::endl;
 		b.signForm(form);
-		std::cout << "is signed? " << form.getIsSigned() << '\n';
+		std::cout << form << std::endl;
 	}
 	catch (const std::exception &e)
 	{

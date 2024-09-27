@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:19:13 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/09/26 15:12:25 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/09/27 09:36:07 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,12 @@ std::ostream &operator<<(std::ostream &outstream, Bureaucrat &rhs)
 	return outstream;
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
-	return ("GradeTooHigh");
-}
+// const char* Bureaucrat::GradeTooHighException::what() const throw()
+// {
+// 	return ("GradeTooHigh");
+// }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
-	return ("GradeTooLow");
-}
+// const char* Bureaucrat::GradeTooLowException::what() const throw()
+// {
+// 	return ("GradeTooLow");
+// }

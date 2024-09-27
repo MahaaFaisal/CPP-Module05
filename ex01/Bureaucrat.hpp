@@ -4,6 +4,7 @@
 # include <exception>
 # include "Utils.hpp"
 # include "Form.hpp"
+
 class Form;
 
 class Bureaucrat
@@ -11,16 +12,16 @@ class Bureaucrat
 	private:
 		std::string const _name;
 		int	_grade;
-		class GradeTooHighException : public std::exception
-		{
-			public:
-				const char* what() const throw();
-		};
-		class GradeTooLowException : public std::exception
-		{
-			public:
-				const char* what() const throw();
-		};
+		// class GradeTooHighException : public std::exception
+		// {
+		// 	public:
+		// 		const char* what() const throw();
+		// };
+		// class GradeTooLowException : public std::exception
+		// {
+		// 	public:
+		// 		const char* what() const throw();
+		// };
 	
 	public:
 		Bureaucrat();
