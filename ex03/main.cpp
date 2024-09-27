@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:52:56 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/09/27 18:46:56 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:49:35 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ int main()
 	AForm *wrong = x.makeForm("presidential", "Raghda");
 	
 	std::cout << '\n';
-	Bureaucrat y;
-	robo->(y);
+	Bureaucrat y ("name", 1);
+	robo->beSigned(y);
+	robo->execute(y);
 	delete robo;
 	delete shrub;
 	delete pres;
