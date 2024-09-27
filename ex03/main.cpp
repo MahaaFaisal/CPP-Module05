@@ -6,7 +6,7 @@
 /*   By: mafaisal <mafaisal@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:52:56 by mafaisal          #+#    #+#             */
-/*   Updated: 2024/09/27 18:24:08 by mafaisal         ###   ########.fr       */
+/*   Updated: 2024/09/27 18:46:56 by mafaisal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int main()
 	
 	std::cout << '\n';
 	Bureaucrat y;
-	robo->execute(y);
-	delete robo, shrub, pres, wrong;
+	robo->(y);
+	delete robo;
+	delete shrub;
+	delete pres;
+	delete wrong;
 
 }

@@ -25,16 +25,19 @@ Intern::~Intern ()
 
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-	switch (name)
+	std::string arr[3] = {"robotomy request", "shrubbery creation", "presidential pardon"};
+	int i;
+	for (i = 0; arr[i] != name && i < 3; i++);
+	switch (i)
 	{
-		case ("robotomy request"):
+		case (0):
 			return (new RobotomyRequestForm(target));
-		case ("shrubbery creation"):
+		case (1):
 			return (new ShrubberyCreationForm(target));
-		case ("presidential pardon"):
+		case (2):
 			return (new PresidentialPardonForm(target));
-		case (default):
+		case (3):
 			std::cerr << "I don't know how to make this one\n";
-			return (NULL);
 	}
+	return (NULL);
 }
