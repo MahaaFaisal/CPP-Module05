@@ -1,6 +1,6 @@
 
 CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -Wfatal-errors
+CPPFLAGS = -Wall -Wextra -Werror
 SRCS = main.cpp Bureaucrat.cpp Utils.cpp AForm.cpp Exceptions.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp tests.cpp RobotomyRequestForm.cpp
 NAME = bureaucrat
 

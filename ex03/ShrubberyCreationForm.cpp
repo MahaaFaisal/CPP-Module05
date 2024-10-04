@@ -30,11 +30,15 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 {
+	std::string target = _target;
+	std::string shrub = "_shrubbery";
+	std::string fileName = target + shrub;
 	try
 	{
+
 		this->isExecutable(executor);
 		std::string tree = "      /\\      \n     /  \\     \n    /    \\    \n   /      \\   \n  /        \\  \n /          \\ \n/            \\\n      ||      \n      ||      ";
-		std::ofstream treeLocation(_target +"_shrubbery");
+		std::ofstream treeLocation(fileName.c_str());
 		treeLocation << tree;
 		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 	}
