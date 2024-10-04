@@ -9,6 +9,12 @@
 
 class	Intern
 {
+	private:
+		class formDoesntExist : public std::exception
+		{
+			const char* what() const throw();
+		};
+
 	public:
 		Intern();
 		Intern(Intern &other);

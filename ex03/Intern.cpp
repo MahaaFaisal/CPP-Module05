@@ -37,7 +37,12 @@ AForm *Intern::makeForm(std::string name, std::string target)
 		case (2):
 			return (new PresidentialPardonForm(target));
 		case (3):
-			std::cerr << "I don't know how to make this one\n";
+			throw (formDoesntExist());
 	}
 	return (NULL);
+}
+
+const char* Intern::formDoesntExist::what() const throw()
+{
+	return ("I don't know this form");
 }
